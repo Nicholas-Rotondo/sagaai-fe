@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const MyButton: React.FC<ButtonProps> = ({ label, onClick }) => {
   const handleClick = async () => {
-    const response = await axios.get("http://localhost:8000/sagaai/");
+    const response = await axios.get("http://localhost:8000/sagaai/api");
     console.log(response.data);
   };
 
