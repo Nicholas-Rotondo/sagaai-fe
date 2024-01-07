@@ -1,22 +1,26 @@
 import React from 'react';
 import './App.css';
-import MyButton from './components/TestSaga';
-import FlexHeader from './components/Header';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import ImageContainer from './components/ImageContainer';
+import UserDash from './components/UserDash/UserDash';
+import SignUp from './components/SignUp';
+
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 function App() {
-  const imagePath = "/Users/nicholasrotondo/sagaai-fe/src/css/img/starry.jpeg";
   return (
-    <div style={{
-      flex: 1,
-      display: 'flex',
-      backgroundImage: `url(${require('/Users/nicholasrotondo/sagaai-fe/src/css/img/starry.jpeg')})`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      }}>
-      <FlexHeader title="SagaAI" subtitle="A new way to build your story"></FlexHeader>
-      <MyButton label={"This is a string"}></MyButton>
-    </div>
+    <ChakraProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<SignUp/>} />
+            <Route path="/userDash" element={<UserDash/>} />
+            <Route path="/uploadContainer" element={<ImageContainer />} />
+          </Routes>
+      </Router>
+    </ChakraProvider>
   );
 }
 
