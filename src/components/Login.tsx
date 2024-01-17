@@ -10,10 +10,12 @@ import {
   Button,
 } from "@chakra-ui/react";
 import axios from "axios";
+import FlexHeader from "./Header";
+import { Link } from 'react-router-dom';
 
 interface FormProps {}
 
-const Form: React.FC<FormProps> = ({}) => {
+const Login: React.FC<FormProps> = ({}) => {
   const [email, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -44,12 +46,14 @@ const Form: React.FC<FormProps> = ({}) => {
   }
 
   return (
-    <Flex height="calc(100vh - 56px)">
+    <Flex height={"100%"} width={"100%"}>
+      <FlexHeader/>
       {/* Left Side */}
       <Flex
         justifyContent="center"
         alignItems="center"
         width="50%"  // Half the screen
+        height={"100%"}
         bg="white.0" // Just for distinction, can be removed
       >
         <form onSubmit={processCredentials}>
@@ -82,6 +86,12 @@ const Form: React.FC<FormProps> = ({}) => {
               <Button colorScheme='teal' variant='outline' type='submit'>
                 Submit
               </Button>
+
+              <Link to='/signup'>
+                <Button>
+                  Not a user. Create an Account!
+                </Button>
+              </Link>
             </Stack>
         </form>
       </Flex>
@@ -92,6 +102,7 @@ const Form: React.FC<FormProps> = ({}) => {
         justifyContent="center"
         alignItems="center"
         width="50%"
+        height="100%"
         bg="gray.200"
       >
         <Image 
@@ -105,4 +116,4 @@ const Form: React.FC<FormProps> = ({}) => {
   );
 };
 
-export default Form;
+export default Login;

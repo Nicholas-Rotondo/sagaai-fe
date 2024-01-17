@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import ImageContainer from './components/ImageContainer';
 import UserDash from './components/UserDash/UserDash';
 import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 import { ChakraProvider } from '@chakra-ui/react'
 
@@ -15,6 +16,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp/>} />
             <Route path="/userDash" element={<UserDash/>} />
             <Route path="/uploadContainer" element={<ImageContainer />} />
